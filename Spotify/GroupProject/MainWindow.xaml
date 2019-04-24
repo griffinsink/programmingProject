@@ -23,12 +23,18 @@
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
         <Label Content="What do you want to search by?" HorizontalAlignment="Left" Margin="185,98,0,0" VerticalAlignment="Top" Height="26" Width="181" FontFamily="Franklin Gothic Medium" Background="{x:Null}" Foreground="White"/>
-        <ComboBox x:Name="comboCategory" HorizontalAlignment="Left" Margin="185,129,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" Height="22">
+        <ComboBox x:Name="comboCategory" HorizontalAlignment="Left" Margin="185,129,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" Height="22" OpacityMask="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FFD4D1D1" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <ComboBoxItem Content="Mood" HorizontalAlignment="Left" Width="118" Selected="ComboBoxItem_Selected"/>
             <ComboBoxItem Content="Artist" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Genre" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <TextBox x:Name="txtboxDetails" HorizontalAlignment="Left" Height="23" Margin="190,10.2,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+        <TextBox x:Name="txtboxDetails" HorizontalAlignment="Left" Height="23" Margin="190,10.2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" Grid.Row="1" Background="#FFA8A8A8"/>
         <Label x:Name="lblSpecify" Content="Please specify search:" HorizontalAlignment="Left" Margin="185,188,0,0" VerticalAlignment="Top" Width="152" Grid.RowSpan="2" Height="26" Foreground="White" FontFamily="Franklin Gothic Medium"/>
         <Image x:Name="albumImage" HorizontalAlignment="Left" Height="174" Margin="484,53,0,0" VerticalAlignment="Top" Width="191" Grid.RowSpan="2"/>
         <ListBox x:Name="lstboxSongInfo" HorizontalAlignment="Left" Height="100" Margin="520,65.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Background="White"/>
