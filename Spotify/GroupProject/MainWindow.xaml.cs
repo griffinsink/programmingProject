@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using Newtonsoft.Json;
 using SpotifyAPI.Web.Models;
 using SpotifyAPI.Web.Enums;
-using SpotifyAPI.Web.Models;
+
 
 namespace GroupProject
 {
@@ -55,25 +55,25 @@ namespace GroupProject
 
             using (HttpClient client = new HttpClient())
             {
-                
+
 
                 if (selection == "Artist")
                 {
-                    
+
                     var response = client.GetAsync($"https://api.spotify.com/v1/artists/{txtboxDetails.Text}/top-tracks").Result;
                     if (!response.IsSuccessStatusCode)
                     {
                         txtboxDetails.Clear();
                         MessageBox.Show("You done FUCKED up.");
                     }
-                    else if(response.IsSuccessStatusCode)
+                    else if (response.IsSuccessStatusCode)
                     {
                         var song = response.Content.ReadAsStringAsync().Result;
                         FullArtist a = JsonConvert.DeserializeObject<FullArtist>();
 
                     }
                 }
-                
+
             }
         }
 
