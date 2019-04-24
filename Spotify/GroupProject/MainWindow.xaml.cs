@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
 using SpotifyAPI.Web.Models;
 using SpotifyAPI.Web.Enums;
 
@@ -23,11 +25,16 @@ namespace GroupProject
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,35 +53,44 @@ namespace GroupProject
             
         }
 
+        private static SpotifyWebAPI spotify;
+        public static void Main(string[] args)
+        {
+            spotify = new SpotifyWebAPI()
+            {
+                UseAuth = false,
+            }  FullTr          
+        }
+
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
 
-            string selection;
+            //string selection;
 
-            selection = comboCategory.Text;
+            //selection = comboCategory.Text;
 
-            using (HttpClient client = new HttpClient())
-            {
+            //using (HttpClient client = new HttpClient())
+            //{
 
 
-                if (selection == "Artist")
-                {
+            //    if (selection == "Artist")
+            //    {
 
-                    var response = client.GetAsync($"https://api.spotify.com/v1/artists/{txtboxDetails.Text}/top-tracks").Result;
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        txtboxDetails.Clear();
-                        MessageBox.Show("You done FUCKED up.");
-                    }
-                    else if (response.IsSuccessStatusCode)
-                    {
-                        var song = response.Content.ReadAsStringAsync().Result;
-                        FullArtist a = JsonConvert.DeserializeObject<FullArtist>();
+            //        var response = client.GetAsync($"https://api.spotify.com/v1/artists/{txtboxDetails.Text}/top-tracks").Result;
+            //        if (!response.IsSuccessStatusCode)
+            //        {
+            //            txtboxDetails.Clear();
+            //            MessageBox.Show("You done FUCKED up.");
+            //        }
+            //        else if (response.IsSuccessStatusCode)
+            //        {
+            //            var song = response.Content.ReadAsStringAsync().Result;
+            //            FullArtist a = JsonConvert.DeserializeObject<FullArtist>();
 
-                    }
-                }
+            //        }
+            //    }
 
-            }
+            //}
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
