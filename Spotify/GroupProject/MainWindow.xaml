@@ -5,24 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF020101" Offset="1"/>
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FE677663"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="685*"/>
-            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Spotify " HorizontalAlignment="Left" Margin="84,41,0,0" VerticalAlignment="Top" Width="175"/>
-        <Label Content="What do you want to search by?" HorizontalAlignment="Left" Margin="52,133,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboCategory" HorizontalAlignment="Left" Margin="84,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+        <Label Content="What do you want to search by?" HorizontalAlignment="Left" Margin="185,98,0,0" VerticalAlignment="Top" Height="26" Width="181" FontFamily="Franklin Gothic Medium" Background="{x:Null}" Foreground="White"/>
+        <ComboBox x:Name="comboCategory" HorizontalAlignment="Left" Margin="185,129,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" Height="22">
             <ComboBoxItem Content="Mood" HorizontalAlignment="Left" Width="118" Selected="ComboBoxItem_Selected"/>
             <ComboBoxItem Content="Artist" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Genre" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <TextBox x:Name="txtboxDetails" HorizontalAlignment="Left" Height="23" Margin="67,285,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152"/>
-        <Label x:Name="lblSpecify" Content="Please specify search:" HorizontalAlignment="Left" Margin="81,224,0,0" VerticalAlignment="Top" Width="152"/>
-        <Image x:Name="albumImage" HorizontalAlignment="Left" Height="174" Margin="484,53,0,0" VerticalAlignment="Top" Width="191"/>
-        <ListBox x:Name="lstboxSongInfo" HorizontalAlignment="Left" Height="100" Margin="534,253,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="btnSelect" Content="Button" HorizontalAlignment="Left" Margin="113,333,0,0" VerticalAlignment="Top" Width="75" Click="btnSelect_Click"/>
+        <TextBox x:Name="txtboxDetails" HorizontalAlignment="Left" Height="23" Margin="190,10.2,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152" Grid.Row="1"/>
+        <Label x:Name="lblSpecify" Content="Please specify search:" HorizontalAlignment="Left" Margin="185,188,0,0" VerticalAlignment="Top" Width="152" Grid.RowSpan="2" Height="26" Foreground="White" FontFamily="Franklin Gothic Medium"/>
+        <Image x:Name="albumImage" HorizontalAlignment="Left" Height="174" Margin="484,53,0,0" VerticalAlignment="Top" Width="191" Grid.RowSpan="2"/>
+        <ListBox x:Name="lstboxSongInfo" HorizontalAlignment="Left" Height="100" Margin="520,65.2,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Background="White"/>
+        <Button x:Name="btnSelect" Content="Button" HorizontalAlignment="Left" Margin="195,111.2,0,0" VerticalAlignment="Top" Width="75" Click="btnSelect_Click" Grid.Row="1" Height="19"/>
+        <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="145" Margin="0,0,0,-0.4" Grid.RowSpan="2" Background="Black"/>
+        <Image x:Name="spotifyIcon" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="15,35,0,0" Source="icons/spotify.jpg" StretchDirection="DownOnly"/>
+        <Grid HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="2" Background="Black" MouseLeftButtonDown="Grid_MouseLeftButtonDown"/>
 
     </Grid>
 </Window>

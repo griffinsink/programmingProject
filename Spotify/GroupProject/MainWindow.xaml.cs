@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using SpotifyAPI.Web.Models;
+using SpotifyAPI.Web.Enums;
+using SpotifyAPI.Web.Models;
 
 namespace GroupProject
 {
@@ -73,6 +75,11 @@ namespace GroupProject
                 }
                 
             }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }
